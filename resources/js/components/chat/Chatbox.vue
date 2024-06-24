@@ -24,7 +24,7 @@
           <button
             class="form__button form__button--text"
             v-if="target < 1 && bot < 1"
-            @click.prevent="changeTab('list', 'userlist')"
+            @click.prevent="changeTab('user', 'userlist')"
           >
             <i class="fa fa-users"></i>
             Users: {{ users.length }}
@@ -461,6 +461,9 @@ export default {
         }
       } else if (typeVal == 'list') {
         this.tab = newVal;
+      }
+      else if (typeVal == 'user'){
+        this.tab = this.tab === newVal ? null : newVal;
       }
     },
     fetchAudibles() {
